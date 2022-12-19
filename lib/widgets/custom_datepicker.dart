@@ -359,7 +359,7 @@ class _CustomDatePickerDialogState extends State<CustomDatePickerDialog>
       _RestorableDatePickerEntryMode(widget.initialEntryMode);
   final _RestorableAutovalidateMode _autovalidateMode =
       _RestorableAutovalidateMode(AutovalidateMode.disabled);
-      
+
   @override
   void didUpdateWidget(CustomDatePickerDialog oldWidget) {
     super.didUpdateWidget(oldWidget);
@@ -604,7 +604,7 @@ class _CustomDatePickerDialogState extends State<CustomDatePickerDialog>
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
                     if (widget.header != null) widget.header!,
-                    picker,
+                    Flexible(child: picker),
                     if (widget.footer != null) widget.footer!,
                   ],
                 );
@@ -615,14 +615,16 @@ class _CustomDatePickerDialogState extends State<CustomDatePickerDialog>
                   children: <Widget>[
                     if (widget.header != null)
                       ConstrainedBox(
-                          constraints: const BoxConstraints(maxWidth: 250),
+                          constraints: BoxConstraints(
+                              maxWidth:
+                                  MediaQuery.of(context).size.width * 0.33),
                           child: widget.header!),
                     Flexible(
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: <Widget>[
-                          Expanded(child: picker),
+                          Flexible(child: picker),
                           if (widget.footer != null) widget.footer!,
                         ],
                       ),
