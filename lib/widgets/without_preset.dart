@@ -27,7 +27,7 @@ class _DatePickerWithoutPresetState extends State<DatePickerWithoutPreset> {
   @override
   Widget build(BuildContext context) {
     return FractionallySizedBox(
-      widthFactor: MediaQuery.of(context).size.width > 400 ? 0.8 : 1,
+      widthFactor: MediaQuery.of(context).size.width > 800 ? 0.8 : 1,
       child: CustomDatePickerDialog(
         initialDate: selectedDate,
         firstDate: DateTime(2000),
